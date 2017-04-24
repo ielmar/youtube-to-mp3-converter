@@ -1,0 +1,1 @@
+(function(){dust.register("tpl-child.dust",body_0);var blocks={"content":body_1};function body_0(chk,ctx){ctx=ctx.shiftBlocks(blocks);return chk.p("base",ctx,{});}body_0.__dustBody=!0;function body_1(chk,ctx){ctx=ctx.shiftBlocks(blocks);return chk.w("<p>Child content...</p>");}body_1.__dustBody=!0;return body_0;})();

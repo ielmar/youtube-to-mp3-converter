@@ -1,0 +1,22 @@
+		<div class="col-xs-12 col-sm-4">
+            <script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- youtube2mp3-responsive -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4700703729931997"
+                 data-ad-slot="2794935697"
+                 data-ad-format="auto"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+		</div>
+ 		<div class="col-xs-12 col-sm-4 text-center">
+            <figure>
+                <img src="{img_url}" alt="{title}" title="{title}" class="img-responsive">
+            </figure>
+            <button class="convert btn btn-success">Convert this YouTube video to MP3!</button>
+        </div>
+ 		<div class="col-xs-12 col-sm-4">
+            <h3>{title}</h3>
+            <p>{description}</p>
+        </div>

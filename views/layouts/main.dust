@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  {>"layouts/partials/header.dust" page_title=page_title/}
+  </head>
+
+  <body>
+{>"layouts/partials/nav.dust"/}
+
+
+    <div class="jumbotron">
+      <div class="container">
+        <h2>Convert your favourite YouTube videos to high quality MP3</h2>
+            <div class="input-group row">
+              <input value="" class="youtube btn-lg col-lg-6 col-md-6 col-xs-12" name="youtube" placeholder="Paste YouTube video link here" required>
+               <button id="submit" class="btn btn-info btn-lg col-lg-2 col-md-4 col-xs-12">Convert</button>
+            </div>
+            <p class="col-lg-8">YouTube2MP3.eu is an online service for converting YouTube videos to MP3. Just paste the link of YouTube video you want to convert and click the "Give me the MP3!" button, and we will start to convert the video to MP3 on our servers and in seconds give you the link to download the MP3. Get the ultimate listening experience with high quality mp3 tracks.<br><br>
+            	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4700703729931997"
+     data-ad-slot="8847495697"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+           </p>
+            
+      </div>
+    </div>
+
+    <div class="container">
+       <div class="row">
+           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- youtube2mp3-responsive -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4700703729931997"
+                 data-ad-slot="2794935697"
+                 data-ad-format="auto"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+       </div>
+       <br>
+        <div class="row">
+
+            <div class="dual-list list-left col-md-4">
+                <div class="well">
+                    <h4>
+                        Last converted YouTube videos
+                    </h4>
+                    <ul class="list-group last">
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dual-list list-left col-md-4">
+                <div class="well">
+                    <h4>
+                        Other converted YouTube videos
+                    </h4>
+                    <ul class="list-group other">
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="dual-list list-left col-md-4">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- youtube col-4 -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-4700703729931997"
+                     data-ad-slot="4335877296"
+                     data-ad-format="auto"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="box">
+                    <div class="box-icon">
+                        <span class="fa fa-4x fa-star"></span>
+                    </div>
+                    <div class="info">
+                        <h4 class="text-center">High Quality</h4>
+                        <p>Lightning speed MP3 converter with zero loss to audio-quality. Conversions are performed in high quality mode with a bitrate of at least 128 Kbit/s. Listen to high quality YouTube MP3 using our website!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="box">
+                    <div class="box-icon">
+                        <span class="fa fa-4x fa-bolt"></span>
+                    </div>
+                    <div class="info">
+                        <h4 class="text-center">Fast Conversion</h4>
+                        <p>We have dedicated servers to let you convert your videos to MP3 in seconds! It usually takes seconds to convert Youtube videos to MP3 depending on the video duration, file size and its quality. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="box">
+                    <div class="box-icon">
+                        <span class="fa fa-4x fa-desktop"></span>
+                    </div>
+                    <div class="info">
+                        <h4 class="text-center">Cross-Platform</h4>
+                        <p>Our software is platform-independent. You can use it on your Mac, Windows, Linux PC or mobile device. The conversion process is performed on our servers and you only have to download MP3 file.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <hr>
+    </div>
+
+    {>"layouts/partials/footer.dust"/}
+    </body>
+</html>

@@ -1,0 +1,138 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        {>"layouts/partials/header.dust" page_title=page_title/}
+        <meta property="og:url" content="{song_url}"/>
+        <meta property="og:image" content="{song_img_url}"/>
+        <meta property="og:title" content="{song_title}"/>
+        <meta property="og:description" content="{song_description}"/>
+        <meta property="og:site_name" content="YouTube 2 MP3"/>
+        <meta property="og:type" content="article"/>
+        <meta property="fb:app_id" content="535979343113579"/>
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{song_title}">
+        <meta name="twitter:description" content="{song_description}">
+        <meta name="twitter:image:src" content="{song_img_url}">
+    </head>
+    <body>
+      <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '535979343113579',
+          xfbml      : true,
+          version    : 'v2.3'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+       <div class="jumbotron">
+        <div class="container">
+        {>"layouts/partials/nav.dust"/}
+            <h2>Convert your favourite YouTube videos to high quality MP3</h2>
+            <div class="input-group row">
+              <input value="" class="youtube btn-lg col-lg-6 col-md-6 col-xs-12" name="youtube" placeholder="Paste YouTube video link here" required>
+               <button id="submit" class="btn btn-info btn-lg col-lg-2 col-md-4 col-xs-12">Convert</button>
+            </div>
+            <p class="col-lg-8">YouTube2MP3.eu is an online service for converting YouTube videos to MP3. Just paste the link of YouTube video you want to convert and click the "Give me the MP3!" button, and we will start to convert the video to MP3 on our servers and in seconds give you the link to download the MP3. Get the ultimate listening experience with high quality mp3 tracks.</p>
+
+           </div>
+        </div>
+
+
+    <div class="container">
+        <div class="row videodetails">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Youtube2mp3-top -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4700703729931997"
+                 data-ad-slot="8847495697"
+                 data-ad-format="auto"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+                {>"layouts/partials/videoDetailsView.dust" page_title=song_title song_img_url=song_img_url song_description=song_description song_title=song_title/}
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="box">
+                    <div class="box-icon">
+                        <span class="fa fa-4x fa-star"></span>
+                    </div>
+                    <div class="info">
+                        <h4 class="text-center">High Quality</h4>
+                        <p>Lightning speed MP3 converter with zero loss to audio-quality. Conversions are performed in high quality mode with a bitrate of at least 128 Kbit/s. Listen to high quality YouTube MP3 using our website!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="box">
+                    <div class="box-icon">
+                        <span class="fa fa-4x fa-bolt"></span>
+                    </div>
+                    <div class="info">
+                        <h4 class="text-center">Fast Conversion</h4>
+                        <p>We have dedicated servers to let you convert your videos to MP3 in seconds! It usually takes seconds to convert Youtube videos to MP3 depending on the video duration, file size and its quality. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="box">
+                    <div class="box-icon">
+                        <span class="fa fa-4x fa-desktop"></span>
+                    </div>
+                    <div class="info">
+                        <h4 class="text-center">Cross-Platform</h4>
+                        <p>Our software is platform-independent. You can use it on your Mac, Windows, Linux PC or mobile device. The conversion process is performed on our servers and you only have to download MP3 file.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          <hr>
+        </div>
+        {>"layouts/partials/footer.dust"/}
+        <script async src="js/compiled/layouts/partials/videoDetailsView.js"></script>
+        <script>
+            $(document).on('click', 'button.convert', function(){
+                var urlpath = window.location.pathname.split( '/' );
+                if(urlpath[2].length>0)
+                {
+                    var id = /(\d+)\-/.exec(urlpath);
+                    $(this).addClass('whirl ld').prop('disabled',true);
+                    socket.emit('gimmemp3',id[1]);
+                }
+            });
+            var socket = io().connect();
+            socket.on('connect', function(){
+                var urlpath = window.location.pathname.split( '/' );
+                if(urlpath[2].length>0)
+                {
+                    var id = /(\d+)\-/.exec(urlpath);
+                    socket.emit('getmp3',id[1]);
+                }                
+            }); 
+            socket.on('mp3', function(data){
+                dust.render("tpl-layouts/partials/videoDetailsView.dust", data, function(err, out) {
+                    $(".container .videodetails").html(out);
+                });
+            });
+            socket.on('convert_finished', function(data){
+                $('<a href="/'+data.mp3_url+'" title="Download MP3" class="btn btn-success btn-primary btn-lg convert">Download MP3</a>').insertBefore('.convert').fadeIn();
+                $('button.convert').remove();
+            });
+            socket.on('error', function (reason) {
+                console.log('Unable to connect to server', reason);
+            });
+        </script>
+    </body>
+</html>
