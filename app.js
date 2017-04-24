@@ -131,7 +131,7 @@ io.on('connection', function (socket) {
                 connection.query('select videoId from videoIds where id =? limit 1', [id], function(err, result, rows){
                     if(!err){
                         // download and convert youtube video
-                        var url = "https://www.googleapis.com/youtube/v3/videos?id=" + result[0].videoId + "&key=***REMOVED***&part=contentDetails,snippet";
+                        var url = "https://www.googleapis.com/youtube/v3/videos?id=" + result[0].videoId + "&key=AIzaSyD-wVtI49n9XpcIR_-7IrMxJ7yAgalGUx8&part=contentDetails,snippet";
                         request(url, function(err, res, body){
                             if(!err && res.statusCode == 200) {
                                 // get the url request body 
@@ -190,7 +190,7 @@ io.on('connection', function (socket) {
             // show invalid url error
             socket.emit('notyoutube', 'Paste a YouTube URL.');
         } else {
-            var url = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId + "&key=***REMOVED***&part=contentDetails,snippet";
+            var url = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId + "&key=AIzaSyD-wVtI49n9XpcIR_-7IrMxJ7yAgalGUx8&part=contentDetails,snippet";
             request(url, function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                     var json = JSON.parse(body);
